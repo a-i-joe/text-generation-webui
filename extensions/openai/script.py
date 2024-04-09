@@ -342,7 +342,7 @@ async def handle_unload_loras():
 
 
 def run_server():
-    server_addr = '0.0.0.0' if shared.args.listen else '127.0.0.1'
+    server_addr = (shared.args.api_hostname if shared.args.api_hostname else '0.0.0.0') if shared.args.listen else '127.0.0.1'
     port = int(os.environ.get('OPENEDAI_PORT', shared.args.api_port))
 
     ssl_certfile = os.environ.get('OPENEDAI_CERT_PATH', shared.args.ssl_certfile)
